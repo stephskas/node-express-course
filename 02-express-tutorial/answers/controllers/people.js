@@ -8,8 +8,7 @@ const createPerson = (req, res) => {
 	const { name } = req.body;
 	!name
 		? res.status(400).json({ success: false, msg: 'please provide name value' })
-		: null;
-	res.status(201).json({ success: true, person: name });
+		: res.status(201).json({ success: true, person: name });
 };
 
 const createPersonPostman = (req, res) => {
