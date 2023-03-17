@@ -47,9 +47,11 @@ app.get('/api/v1/query', (req, res) => {
 	}
 	if (sortedProducts.length < 1) {
 		// res.status(200).send('no products matched your search');
-		return res.status(200).json({ success: true, data: [] });
+		return res.status(200).json({ success: true, data: [] }); // only one response per request, need to have a return
 	}
-	res.status(200).json(sortedProducts);
+	res.status(200).json(sortedProducts); // no code after so return can be omitted
+	// test with http://localhost:5002/api/v1/query?name=john&id=4
+	// test with http://localhost:5002/api/v1/query?search=a&limit=2
 });
 
 app.get('*', (req, res) => {
