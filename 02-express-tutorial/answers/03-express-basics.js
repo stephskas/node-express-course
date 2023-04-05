@@ -1,4 +1,3 @@
-// const app = require('express')(); or
 const express = require('express');
 const app = express();
 
@@ -18,11 +17,3 @@ app.all('*', (req, res) => {
 app.listen(5002, () => {
 	console.log('server is listening on port 5002');
 });
-
-// app.get
-// app.post
-// app.put
-// app.delete
-// app.all (404)
-// app.use (middleware)
-// app.listen
