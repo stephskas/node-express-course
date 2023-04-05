@@ -3,6 +3,7 @@ const app = express();
 const { products } = require('./data');
 
 app.get('/', (req, res) => {
+	// res.status(200).json([{ name: 'john' }, { name: 'susan' }]);
 	res.status(200).json(products);
 });
 
