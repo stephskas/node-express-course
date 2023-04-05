@@ -34,25 +34,31 @@ app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
 })
 
 app.get('/api/v1/query', (req, res) => {
-  // console.log(req.query)
-  const { search, limit } = req.query
-  let sortedProducts = [...products]
+	console.log(req.query);
+	const { search, limit } = req.query;
+	let sortedProducts = [...products];
 
-  if (search) {
-    sortedProducts = sortedProducts.filter((product) => {
-      return product.name.startsWith(search)
-    })
-  }
-  if (limit) {
-    sortedProducts = sortedProducts.slice(0, Number(limit))
-  }
-  if (sortedProducts.length < 1) {
-    // res.status(200).send('no products matched your search');
-    return res.status(200).json({ sucess: true, data: [] })
-  }
-  res.status(200).json(sortedProducts)
-})
+	if (search) {
+		sortedProducts = sortedProducts.filter((product) => {
+			return product.name.startsWith(search);
+		});
+	}
+	if (limit) {
+		sortedProducts = sortedProducts.slice(0, Number(limit));
+	}
+	if (sortedProducts.length < 1) {
+		// res.status(200).send('no products matched your search');
+		return res.status(200).json({ success: true, data: [] }); // only one response per request, need to have a return
+	}
+	res.status(200).json(sortedProducts); // no code after so return can be omitted
+	// test with http://localhost:5002/api/v1/query?name=john&id=4
+	// test with http://localhost:5002/api/v1/query?search=a&limit=2
+});
 
-app.listen(5000, () => {
-  console.log('Server is listening on port 5000....')
-})
+app.get('*', (req, res) => {
+	res.status(404).send('resource not found');
+});
+
+app.listen(5002, () => {
+	console.log('server is listening on port: 5002...');
+});

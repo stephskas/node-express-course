@@ -17,4 +17,3 @@ app.all('*', (req, res) => {
 app.listen(5002, () => {
 	console.log('server is listening on port 5002');
 });
-
