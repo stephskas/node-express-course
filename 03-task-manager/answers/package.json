@@ -1,6 +1,7 @@
 {
-  "name": "2-express-tutorial",
+  "name": "jobs",
   "version": "1.0.0",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -9,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
-    "morgan": "^1.10.0"
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  },
-  "description": ""
+  }
 }
